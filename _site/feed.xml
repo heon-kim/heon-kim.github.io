@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-20T12:16:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Heon-Log</title><subtitle>this is my blog!</subtitle><author><name>heon</name></author><entry><title type="html">2024 정보처리기사 1회차 정보</title><link href="http://localhost:4000/cert/2024-01-19-cert-data/" rel="alternate" type="text/html" title="2024 정보처리기사 1회차 정보" /><published>2024-01-19T00:00:00+09:00</published><updated>2024-01-19T00:00:00+09:00</updated><id>http://localhost:4000/cert/cert-data</id><content type="html" xml:base="http://localhost:4000/cert/2024-01-19-cert-data/"><![CDATA[<blockquote>
+  <p>🌷 <strong>개요</strong></p>
+</blockquote>
+
+<ol>
+  <li>일정</li>
+</ol>
+
+<ul>
+  <li>필기 원서접수 01.23(화) ~ 01.26(금)</li>
+  <li>필기 시험 02.15(목) ~ 03.07(목)</li>
+  <li>
+    <p>필기 합격자발표 03.13(수)</p>
+  </li>
+  <li>
+    <p>서류제출 02.15(목) ~ 03.25(월)</p>
+  </li>
+  <li>실기 원서접수 <code class="language-plaintext highlighter-rouge">03.26(화) ~ 03.29(금)</code>`</li>
+  <li>실기 시험 <code class="language-plaintext highlighter-rouge">04.27(토)</code>`</li>
+  <li>합격자발표 06.18(화)</li>
+</ul>
+
+<ol>
+  <li>준비물</li>
+</ol>
+
+<ul>
+  <li>필기 : 수험표(스마트폰), 신분증</li>
+  <li>실기 : 검정펜, 수험표(출력), 신분증</li>
+</ul>
+
+<ol>
+  <li>시험</li>
+</ol>
+
+<ul>
+  <li>필기 : CBT로 컴퓨터 제출 후 바로 점수 확인</li>
+  <li>실기 : 종이에 펜으로 작성하여 제출 후 점수는 2달 후 확인</li>
+</ul>
+
+<ol>
+  <li>공부</li>
+</ol>
+
+<ul>
+  <li>필기/실기 모두 기출문제를 외우면 쉬움. 답을 외우기 보다는 푸는 방법을 외우는 것이 좋다.</li>
+  <li>필기는 기출 3회독 이상, 문제를 보면 답이 바로 나올 정도로 공부하기.</li>
+  <li>실기는 이론 공부 필요.
+    <ul>
+      <li>시나공 무료 인강 시청</li>
+      <li><a href="https://m.blog.naver.com/dlqnf33/223124123745?referrerCode=1">요약본, 기출문제 풀기 참고 블로그</a></li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>heon</name></author><category term="cert" /><category term="cert" /><summary type="html"><![CDATA[정처기]]></summary></entry><entry><title type="html">스위치의 추가 기능 - VLAN</title><link href="http://localhost:4000/network/2024-01-16-network-switch/" rel="alternate" type="text/html" title="스위치의 추가 기능 - VLAN" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/network-switch</id><content type="html" xml:base="http://localhost:4000/network/2024-01-16-network-switch/"><![CDATA[<blockquote>
+  <p>🌷 <strong>개요</strong></p>
+
+  <p><strong>스위치</strong></p>
+
+  <ul>
+    <li>2계층 장비</li>
+    <li>네트워크의 가장 핵심적인 장비</li>
+    <li>MAC 주소를 기반으로 동작</li>
+  </ul>
+
+  <p><strong>스위치의 기본 동작</strong></p>
+
+  <ul>
+    <li>네트워크 중간에서 패킷을 받아, 필요한 곳에만 보내준다. (네트워크의 통신을 중재)</li>
+    <li>아무 설정을 하지 않고 연결만 해도 MAC 주소를 기반으로 패킷을 전달한다.</li>
+  </ul>
+
+  <p><strong>추가 기능</strong></p>
+
+  <ul>
+    <li>VLAN 기능 : 논리적으로 네트워크를 분리</li>
+    <li>STP 기능 (스패닝 트리 프로토콜) : 네트워크의 루프 방지</li>
+  </ul>
+</blockquote>
+
+<h1 id="vlan">VLAN</h1>
+
+<h2 id="1-vlan이란">1. VLAN이란?</h2>
+
+<ul>
+  <li>LAN을 <code class="language-plaintext highlighter-rouge">논리적</code>으로 <code class="language-plaintext highlighter-rouge">분할</code>하는 기술</li>
+  <li>
+    <p>용도</p>
+
+    <ul>
+      <li>과도한 브로드캐스트로 인한 단말들의 성능 저하 방지, 보안 향상을 위한 차단 용도</li>
+      <li>서비스 성격에 따른 정책 분리 적용</li>
+      <li>각 부서별로 네트워크 분할</li>
+      <li>단말별로 네트워크 분할</li>
+    </ul>
+  </li>
+  <li>주의
+    <ul>
+      <li>VLAN 간의 통신은 3계층 장비를 통해서만 가능
+        <ul>
+          <li>서로 다른 네트워크로 분리되기 때문</li>
+          <li>유니캐스트, 브로드캐스트 모두 3계층을 통해야함</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2-vlan의-종류">2. VLAN의 종류</h2>
+
+<ul>
+  <li>분류 기준: VLAN 할당 방식</li>
+</ul>
+
+<h3 id="포트-기반-vlan-일반적인-방식">포트 기반 VLAN (일반적인 방식)</h3>
+
+<ul>
+  <li>
+    <p>스위치의 고정 포트에 VLAN 할당</p>
+
+    <ul>
+      <li>단말의 위치가 이동하면 다른 포트가 연결되어 VLAN이 변경</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="mac-주소-기반-vlan">MAC 주소 기반 VLAN</h3>
+
+<ul>
+  <li>
+    <p>스위치에 연결되는 단말의 MAC 주소에 VLAN 할당</p>
+
+    <ul>
+      <li>Dynamic VLAN 이라고도 부른다.</li>
+      <li>단말에 따라 VLAN 정보가 바뀌기 때문</li>
+      <li>단말의 위치가 이동하더라도 VLAN이 변경되지 않는다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3-vlan-모드-동작-방식-포트-기반-vlan">3. VLAN 모드 동작 방식 (포트 기반 VLAN)</h2>
+
+<ul>
+  <li>
+    <p>VLAN의 특징</p>
+
+    <ul>
+      <li>한 대의 스위치에 연결하더라도 서로 다른 VLAN이 설정된 포트 간에는 통신할 수 없다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>VLAN별 포트 연결의 문제</p>
+
+    <ul>
+      <li>하나의 스위치에는 하나의 VLAN이 연결되고, 하나의 VLAN은 하나의 포트를 사용하기 때문에 포트가 낭비 된다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>해결</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">태그</code> 기능 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="태그-포트-트렁크-포트">태그 포트 (트렁크 포트)</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">하나의 포트</code>에 <code class="language-plaintext highlighter-rouge">여러개의 VLAN</code> 전송
+    <ul>
+      <li>패킷 전송할 때 이더넷 프레임 중간에 VLAN ID 필드를 추가</li>
+      <li>패킷 수신할 때 VLAN ID 제거</li>
+    </ul>
+  </li>
+  <li>
+    <p>MAC 주소 테이블에 VLAN ID도 저장</p>
+
+    <ul>
+      <li>VLAN 별로 MAC 주소를 사용할 수 있다.</li>
+    </ul>
+  </li>
+  <li>여러 네트워크가 동시에 설정된 <code class="language-plaintext highlighter-rouge">스위치간의 연결</code>에서 사용</li>
+</ul>
+
+<h3 id="언태그-포트-액세스-포트">언태그 포트 (액세스 포트)</h3>
+
+<ul>
+  <li>하나의 네트워크에 속한 <code class="language-plaintext highlighter-rouge">서버</code>에 사용</li>
+</ul>
+
+<blockquote>
+  <p>가상화 서버는 내부에 가상 스위치가 존재하므로 스위치 간 연결로 볼 수 있다.</p>
+
+  <p><img src="https://heon-kim.github.io/assets/images/posts_img/network/2024-01-16-network-switch.jpeg" alt="가상화 서버 연결 구성" /></p>
+</blockquote>]]></content><author><name>heon</name></author><category term="network" /><category term="network" /><summary type="html"><![CDATA[VLAN]]></summary></entry><entry><title type="html">스위치의 추가 기능 - STP</title><link href="http://localhost:4000/network/2024-01-16-network-switch2/" rel="alternate" type="text/html" title="스위치의 추가 기능 - STP" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/network-switch2</id><content type="html" xml:base="http://localhost:4000/network/2024-01-16-network-switch2/"><![CDATA[<blockquote>
+  <p>🌷 <strong>개요</strong></p>
+
+  <p><strong>스위치</strong></p>
+
+  <ul>
+    <li>2계층 장비</li>
+    <li>네트워크의 가장 핵심적인 장비</li>
+    <li>MAC 주소를 기반으로 동작</li>
+  </ul>
+
+  <p><strong>스위치의 기본 동작</strong></p>
+
+  <ul>
+    <li>네트워크 중간에서 패킷을 받아, 필요한 곳에만 보내준다. (네트워크의 통신을 중재)</li>
+    <li>아무 설정을 하지 않고 연결만 해도 MAC 주소를 기반으로 패킷을 전달한다.</li>
+  </ul>
+
+  <p><strong>추가 기능</strong></p>
+
+  <ul>
+    <li>VLAN 기능 : 논리적으로 네트워크를 분리</li>
+    <li>STP 기능 (스패닝 트리 프로토콜) : 네트워크의 루프 방지</li>
+  </ul>
+</blockquote>
+
+<h1 id="stp">STP</h1>
+
+<h2 id="1-stp가-필요한-이유">1. STP가 필요한 이유</h2>
+
+<ul>
+  <li><strong>네트워크 루프</strong>
+    <ul>
+      <li>SPoF를 피하기 위해 이중화, 다중화된 네트워크를 사용하게 되는데, 이 과정에서 스위치를 2대 이상 사용하게 되면 패킷이 네트워크를 돌고 돌아 네트워크를 마비시킬 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>STP는 루프를 <code class="language-plaintext highlighter-rouge">확인</code>하고, 적절히 포트를 사용하지 못하게 만들어 루프를 <code class="language-plaintext highlighter-rouge">예방</code>한다.</p>
+  </li>
+  <li>루프의 대부분의 원인 : 브로드캐스트 스톰</li>
+</ul>
+
+<h3 id="브로드캐스트-스톰">브로드캐스트 스톰</h3>
+
+<ul>
+  <li>
+    <p>발생</p>
+
+    <ol>
+      <li>루프 구조로 네트워크가 연결된 환경</li>
+      <li>단말에서 브로드캐스트를 발생시킴</li>
+      <li>스위치는 패킷을 모든 포트로 플러딩</li>
+      <li>이 패킷을 받은 스위치는 모든 포트로 다시 플러딩</li>
+      <li>반복</li>
+    </ol>
+  </li>
+  <li>효과
+    <ul>
+      <li>2계층 패킷은 수명을 가지고 있지 않기 때문에 패킷 하나가 죽지 않고 전체 네트워크 대역폭을 차지할 수 있다.</li>
+    </ul>
+  </li>
+  <li>결과
+    <ul>
+      <li>네트워크에 접속된 단말의 속도가 느려진다.</li>
+      <li>네트워크 접속 속도가 느려진다. (거의 통신 불가)</li>
+      <li>네트워크에 설치된 스위치의 모든 LED가 빠른 속도로 깜빡인다.</li>
+    </ul>
+  </li>
+  <li>지속
+    <ul>
+      <li>케이블을 제거할 때까지 네트워크 마비 지속</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="mac-어드래스-플래핑-스위치-mac-어드레스-러닝-중복">MAC 어드래스 플래핑 (스위치 MAC 어드레스 러닝 중복)</h3>
+
+<ul>
+  <li>발생
+    <ol>
+      <li>스위치는 출발지 MAC 주소를 학습힌다.</li>
+      <li>스위치 MAC 주소 테이블에서는 하나의 MAC 주소에 대해 하나의 포트만 학습할 수 있다.</li>
+      <li>동일한 MAC 주소가 여러 포트에서 학습되면 MAC 주소 테이블이 중복되어 정상적으로 동작하지 않는다.</li>
+    </ol>
+  </li>
+  <li>결과
+    <ul>
+      <li>스위치에서 학습된 주소의 포트가 계속 변경되어 패킷을 플러딩한다.</li>
+    </ul>
+  </li>
+  <li>예방
+    <ul>
+      <li>루프 구성 포트 중 하나의 포트만 셧다운 시키면 루프를 예방할 수 있다.
+        <ul>
+          <li>사용자가 직접 포트를 조작하는 것은 바람직하지 않다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2-stp란">2. STP란?</h2>
+
+<ul>
+  <li>스패닝 트리 프로토콜</li>
+  <li>
+    <p>루프를 <code class="language-plaintext highlighter-rouge">확인</code>하고 적절히 포트를 사용하지 못하게 만들어 루프를 <code class="language-plaintext highlighter-rouge">예방</code>하는 메커니즘</p>
+  </li>
+  <li>루프를 <code class="language-plaintext highlighter-rouge">확인</code>하는 방법
+    <ol>
+      <li>스위치는 BPDU(브릿지 프로토콜 데이터 단위)라는 프로토콜을 통해 정보를 전달</li>
+      <li>이 정보를 이용해 전체 네트워크 트리를 만들어 루프 구간을 확인</li>
+    </ol>
+  </li>
+  <li>루프를 <code class="language-plaintext highlighter-rouge">예방</code>하는 방법
+    <ul>
+      <li>확인된 루프 지점을 트래픽이 통과하지 못하도록 차단</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="21-스위치-포트의-상태-변화">2.1. 스위치 포트의 상태 변화</h3>
+
+<ul>
+  <li><img src="https://heon-kim.github.io/assets/images/posts_img/2024-01-16-network-switch2.png" alt="스위치 포트의 상태 변화" /></li>
+</ul>
+
+<ol>
+  <li>Blocking : 패킷 데이터를 차단한 상태로 BPDU를 기다린다. (20초)</li>
+  <li>Listening : 포트를 전송 상태로 변경할지 결정 (15초)</li>
+  <li>Learning : MAC 주소 러닝 (15초)</li>
+  <li>Forwarding : 패킷을 포워딩</li>
+</ol>
+
+<ul>
+  <li>=&gt; 총 50초 소요</li>
+</ul>
+
+<h3 id="22-stp-동작-방식">2.2. STP 동작 방식</h3>
+
+<ul>
+  <li>루트 스위치 설정
+    <ul>
+      <li>전체 네트워크에서 하나의 스위치를 선정</li>
+      <li>루트 스위치로 선정된 스위치는 2초마다 자신을 대표 스위치로 적은 BPDU를 전달</li>
+      <li>새로운 스위치가 들어오면 BPDU의 BridgeID가 더 작은 값을 루트 스위치로 설정</li>
+    </ul>
+  </li>
+  <li>루트 포트 설정
+    <ul>
+      <li>루트 스위치의 바로 옆 스위치의 포트</li>
+    </ul>
+  </li>
+  <li>지정 포트 설정
+    <ul>
+      <li>루트 스위치에서 떨어져있는 스위치의 포트
+        <ul>
+          <li>루트 포트와 연결된 포트는 지정 포트로 설정</li>
+          <li>루트 포트와 연결되지 않은 포트는 대체 포트로 설정, 차단 상태로 설정</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3-향상된-stp-rstp-mst">3. 향상된 STP (RSTP, MST)</h2>
+
+<ul>
+  <li>문제
+    <ol>
+      <li>STP가 설정된 스위치는 블로킹 상태에서 포워딩 상태가 되는데까지 50초가 걸린다.
+        <ul>
+          <li>TCP 기반 애플리케이션은 네트워크가 끊겼을 때 이렇게 긴 시간을 기다려주지 못하기 때문에 통신이 끊길 수 있다.</li>
+        </ul>
+      </li>
+      <li>스위치에 여러개의 VLAN이 있으면 각 VLAN별로 STP를 계산하면서 부하가 걸린다.</li>
+    </ol>
+  </li>
+  <li>해결
+    <ol>
+      <li>RSTP</li>
+      <li>MST</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="31-rstp">3.1. RSTP</h3>
+
+<ul>
+  <li>시간이 너무 오래 걸리는 문제를 해결하기 위해 개발</li>
+  <li>
+    <p>Rapid Spanning Tree Protocol</p>
+  </li>
+  <li>공통점
+    <ul>
+      <li>기본적인 구성과 동작 방식은 STP와 같다.</li>
+    </ul>
+  </li>
+  <li>차이점
+    <ul>
+      <li>BPDU 메시지 형식이 다양해져 여러가지 상태 매시지를 교환할 수 있다.
+        <ul>
+          <li>STP는 2가지</li>
+          <li>RSTP는 8비트를 모두 활용</li>
+        </ul>
+      </li>
+      <li>네트워크 전파 시간을 줄일 수 있다.
+        <ul>
+          <li>STP는 루트 브릿지만 토폴로지 정보를 보낼 수 있어 말단-&gt;루트-&gt;말단의 과정을 거쳐야함.</li>
+          <li>RSTP는 모든 스위치가 토폴로지 정보를 보낼 수 있다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="32-mst">3.2. MST</h3>
+
+<ul>
+  <li>일반 STP
+    <ul>
+      <li>VLAN 개수와 상관없이 스패닝 트리 한개만 동작</li>
+      <li>루프가 생기는 토폴로지에서 한개의 포트와 회선만 활성화할 수 있어 비효율적이다.</li>
+      <li>최적의 경로를 다른 포트가 사용중이면 사용할 수 없음</li>
+    </ul>
+  </li>
+  <li>PVST
+    <ul>
+      <li>일반 STP의 문제를 해결</li>
+      <li>VLAN마다 별도의 경로와 트리를 만들 수 있음</li>
+      <li>경로 셰어링을 통해 최적의 경로를 사용할 수 있다.</li>
+      <li>VLAN마다 별도의 스패닝 트리가 동작해 부담이 된다.</li>
+    </ul>
+  </li>
+  <li>MST
+    <ul>
+      <li>PVST의 문제를 해결</li>
+      <li>여러개의 VLAN을 그룹으로 묶고, 그룹마다 별도의 스패닝 트리 동작</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>heon</name></author><category term="network" /><category term="network" /><summary type="html"><![CDATA[STP]]></summary></entry><entry><title type="html">스위치의 기본 동작</title><link href="http://localhost:4000/network/2024-01-15-network-switch/" rel="alternate" type="text/html" title="스위치의 기본 동작" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/network/network-switch</id><content type="html" xml:base="http://localhost:4000/network/2024-01-15-network-switch/"><![CDATA[<blockquote>
+  <p>🌷 <strong>개요</strong></p>
+
+  <p><strong>스위치</strong></p>
+
+  <ul>
+    <li>2계층 장비</li>
+    <li>네트워크의 가장 핵심적인 장비</li>
+    <li>MAC 주소를 기반으로 동작</li>
+  </ul>
+
+  <p><strong>스위치의 기본 동작</strong></p>
+
+  <ul>
+    <li>네트워크 중간에서 패킷을 받아, 필요한 곳에만 보내준다. (네트워크의 통신을 중재)</li>
+    <li>아무 설정을 하지 않고 연결만 해도 MAC 주소를 기반으로 패킷을 전달한다.</li>
+  </ul>
+
+  <p><strong>추가 기능</strong></p>
+
+  <ul>
+    <li>VLAN 기능 : 논리적으로 네트워크를 분리</li>
+    <li>STP 기능 (스패닝 트리 프로토콜) : 네트워크의 루프 방지</li>
+  </ul>
+</blockquote>
+
+<h2 id="스위치의-기본-동작">스위치의 기본 동작</h2>
+
+<ul>
+  <li>스위치의 필요성
+    <ul>
+      <li>스위치가 없다면
+        <ul>
+          <li>패킷을 전송할 때 서로 경합해 그로 인한 네트워크 성능 저하</li>
+        </ul>
+      </li>
+      <li>스위치를 통해
+        <ul>
+          <li>패킷을 동시에 여러 장비가 서로 간섭없이 통신</li>
+          <li>통신 효율성이 향상</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>스위치의 역할</p>
+
+    <ul>
+      <li>장비의 위치를 파악하고 <code class="language-plaintext highlighter-rouge">정확한 위치</code>로 패킷을 전송
+        <ul>
+          <li>정확한 위치는 <code class="language-plaintext highlighter-rouge">MAC 주소 테이블</code>을 통해 알 수 있다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>MAC 주소 테이블</p>
+
+    <ul>
+      <li>
+        <p>MAC 주소와 포트 정보가 매핑되어 있다.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>MAC 주소</th>
+              <th>포트</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1111:2222:3333</td>
+              <td>Eth1</td>
+            </tr>
+            <tr>
+              <td>4444:5555:6666</td>
+              <td>Eth2</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>스위치의 동작
+    <ul>
+      <li>테이블에 없는 주소를 가진 패킷은 전체 포트로 전송된다. (플러딩)</li>
+      <li>테이블에 있는 주소를 가진 패킷은 해당 포트로만 전송된다. (포워딩 또는 필터링)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="1-플러딩-flooding">1. 플러딩 (Flooding)</h3>
+
+<ul>
+  <li>동작 방식 : 전체 포트로 패킷을 전달한다.</li>
+  <li>동작 조건 :
+    <ul>
+      <li>MAC 주소 테이블에 일치하는 도착지 MAC 주소 정보가 없는 경우</li>
+      <li>브로드캐스트, 멀티캐스트, 언노운 유니캐스트인 경우</li>
+    </ul>
+  </li>
+  <li>플러딩 공격 기법
+    <ul>
+      <li>스위치에 잘못된 MAC 주소를 학습시킴</li>
+      <li>MAC 테이블을 꽉 차게해 플러딩을 유도</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-어드레스-러닝">2. 어드레스 러닝</h3>
+
+<ul>
+  <li>동작 방식 : MAC 주소 테이블을 만들고 유지한다.</li>
+  <li>동작 조건 : 특정 포트에 들어온 패킷의 출발지 MAC 주소와 포트번호를 MAC 주소 테이블에 기록</li>
+  <li>브로드캐스트나 멀티캐스트에 대한 MAC 주소를 학습할 수 없다!
+    <ul>
+      <li>출발지가 사용되지 않기 때문</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-포워딩필터링">3. 포워딩/필터링</h3>
+
+<ul>
+  <li>동작 방식 : 특정 포트로 패킷을 전달</li>
+  <li>동작 조건 :
+    <ul>
+      <li>MAC 주소 테이블에 일치하는 도착지 MAC 주소 정보가 있는 경우</li>
+      <li>유니캐스트인 경우</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>heon</name></author><category term="network" /><category term="network" /><summary type="html"><![CDATA[플러딩, 어드레스 러닝, 포워딩/필터링]]></summary></entry></feed>

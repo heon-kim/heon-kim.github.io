@@ -1,0 +1,30 @@
+# main links
+main:
+  - title: "Home"
+    url: https://heon-kim.github.io/
+
+  - title: "About"
+    url: /about/
+
+  - title: "GitHub"
+    url: https://github.com/heon-kim
+
+  # - title: "Projects"
+  #   url: /projects/
+
+  # - title: "Categories"
+  #   url: /categories/
+
+# sidebar navigation (categories)
+# 2022.02.15 sidebar update : simple ver.
+categories:
+  - title: "네트워크"
+    url: /categories/network/
+  - title: "javascript"
+    url: /categories/javascript/
+  - title: "vue"
+    url: /categories/vue/
+  - title: "코드 검증"
+    url: /categories/test/
+  - title: "자격증"
+    url: /categories/cert/
