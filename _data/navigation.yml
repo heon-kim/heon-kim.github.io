@@ -20,10 +20,8 @@ main:
 categories:
   - title: "네트워크"
     url: /categories/network/
-  - title: "javascript"
+  - title: "자바스크립트"
     url: /categories/javascript/
-  - title: "vue"
-    url: /categories/vue/
   - title: "코드 검증"
     url: /categories/test/
   - title: "자격증"
