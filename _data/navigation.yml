@@ -20,9 +20,5 @@ main:
 categories:
   - title: "네트워크"
     url: /categories/network/
-  - title: "자바스크립트"
-    url: /categories/javascript/
-  - title: "코드 검증"
-    url: /categories/test/
-  - title: "자격증"
-    url: /categories/cert/
+  - title: "스터디"
+    url: /categories/study/

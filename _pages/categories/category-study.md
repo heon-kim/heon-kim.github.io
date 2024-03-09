@@ -1,9 +1,9 @@
 ---
-title: "코드 검증"
+title: "스터디"
 layout: category
-permalink: /categories/test/
+permalink: /categories/study/
 author_profile: true
-taxonomy: 코드 검증
+taxonomy: study
 sidebar:
   nav: "categories"
 ---
