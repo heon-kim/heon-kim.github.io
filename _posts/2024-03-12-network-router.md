@@ -55,7 +55,7 @@ published: true
    2. 관리자가 직접 경로 정보를 입력하는 방법
    3. 라우터끼리 서로 경로 정보를 자동으로 교환하는 방법
 
-![Alt text](/assets/images/posts_img/network/2024-03-12-network-router-1.png)
+![Alt text](https://heon-kim.github.io/assets/images/posts_img/network/2024-03-12-network-router-1.png)
 
 이 방법을 통해 정확인 목적지 경로를 얻어 자신이 얻은 경로 정보에 포함되는 패킷만 포워딩한다.
 
@@ -79,7 +79,7 @@ published: true
     - 과거에는 LAN에서 사용하는 프로토콜과 WAN에서 사용하는 프로토콜이 전혀 다른 공간이어서, LAN에서 사용하는 기술이 WAN으로 변환되어야만 통신이 가능했고 이 역할을 라우터가 담당했다.
   - 라우터에 패킷이 들어오면 2계층까지의 헤더 정보를 벗기고 3계층 주소를 확인 후 2계층 헤더 정보를 새로 만들어 외부로 내보낸다.
     - LAN 구간에서 패킷이 라우터를 지나면서 헤더가 벗겨지고 WAN 구간으로 패킷이 나올 때 PPP 헤더로 변경되어 프로토콜이 변환된다.
-      ![Alt text](/assets/images/posts_img/network/2024-03-12-network-router-2.png)
+      ![Alt text](https://heon-kim.github.io/assets/images/posts_img/network/2024-03-12-network-router-2.png)
       라우터는 서브넷 단위로 라우팅 정보를 습득하고 라우팅 정보를 최적화하기 위해 서머리(Summary) 작업을 통해 여러 개의 서브넷 정보를 뭉쳐 전달합니다.
       ⇒ 그래서 라우터에 들어온 패킷의 목적지 주소와 라우터가 갖고 있는 라우팅 테이블 정보가 정확히 일치(Exact Match)하지 않더라도 수많은 정보 중 목적지에 가장 근접한 정보를 찾아 패킷을 포워딩해야 합니다.
 
@@ -94,7 +94,7 @@ published: true
    - 홉 바이 홉 라우팅 (Hop-by-Hop Routing)
      - 단말부터 목적지까지의 경로를 모두 책임지는 것이 아니라, 인접한 라우터까지만 경로를 지정하면 인접 라우터에서 최적의 경로를 다시 파악한 후 라우터로 패킷을 포워딩한다.
      - 이때 인접한 라우터를 Next Hop이라고 부른다.
-       ![Alt text](/assets/images/posts_img/network/2024-03-12-network-router-3.png)
+       ![Alt text](https://heon-kim.github.io/assets/images/posts_img/network/2024-03-12-network-router-3.png)
 
 - Next Hop을 지정하는 방법
   1. 다음 라우터의 IP 주소를 지정하는 방법
@@ -138,7 +138,7 @@ published: true
 
    - 다이렉트 커넥티드로 생성된 정보는 넥스트 홉에 ‘connected’라고 표기된다.
 
-   ![Alt text](/assets/images/posts_img/network/2024-03-12-network-router-4.png)
+   ![Alt text](https://heon-kim.github.io/assets/images/posts_img/network/2024-03-12-network-router-4.png)
 
 2. **스태틱 라우팅**
 
@@ -150,12 +150,12 @@ published: true
 
    - R1과 R2에 각각 넥스트홉에 서로의 주소가 설정되어 있다. 양방향 통신을 해야하기 때문에 되돌아오는 패킷을 고려함.
 
-   ![Alt text](/assets/images/posts_img/network/2024-03-12-network-router-5.png)
+   ![Alt text](https://heon-kim.github.io/assets/images/posts_img/network/2024-03-12-network-router-5.png)
 
    - 스태틱 라우팅의 한계
      1. 라우터 너머 다른 라우터의 상태 정보를 파악할 수 없어 라우터 사이의 회선이나 라우터에 장애가 발생하면 장애 상황을 파악하고 대체 경로로 패킷을 보낼 수 없다.
         - 목적지 R4로 패킷을 보내기 위해 R2 또는 R3 홉으로 패킷을 보내는데, R2-R4 사이의 경로의 장애를 발견하지 못하고 패킷을 버리게 된다.
-          ![Alt text](/assets/images/posts_img/network/2024-03-12-network-router-6.png)
+          ![Alt text](https://heon-kim.github.io/assets/images/posts_img/network/2024-03-12-network-router-6.png)
      2. 관리자가 관리해야하는 네트워크 수가 많아지고 복잡해지면 관리자가 직접 수정하는데에 한계가 있다.
 
 3. **다이나믹 라우팅**
@@ -178,7 +178,7 @@ published: true
 
 들어온 패킷의 목적지가 라우팅 테이블에 있는 정보와 완벽히 일치하지 않는 경우, 라우팅 테이블에서 가장 좋은 항목을 찾는 알고리즘이 필요한다.
 
-![Alt text](/assets/images/posts_img/network/2024-03-12-network-router-7.png)
+![Alt text](https://heon-kim.github.io/assets/images/posts_img/network/2024-03-12-network-router-7.png)
 
 1. 롱기스트 프리픽스 매치 (LPM, 맥시멈 프리픽스 매치)
 
