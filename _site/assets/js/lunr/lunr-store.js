@@ -34,4 +34,10 @@ var store = [{
         "tags": ["network"],
         "url": "/network/2024-03-12-network-router/",
         "teaser": null
+      },{
+        "title": "E2E 테스트 도입 계기와 도입 후 느낀 점",
+        "excerpt":"E2E 테스트 도입 계기 서비스 개발이 완료되어 배포되기 전에는 서비스의 동작 테스트를 QA에서 일차적으로 테스트 단계를 거치게 된다. 개발자와 QA 사이의 시간이 늘어나면 서비스 배포에 걸리는 시간이 늘어나게 된다. 이 시간을 줄이기 위해서는 개발 단계에서 테스트를 먼저 진행하여 최대한 오류가 없는 상태로 배포 요청을 하는것이 좋다. 그렇다면 유닛테스트가 아닌 E2E...","categories": ["fe-test"],
+        "tags": ["test"],
+        "url": "/fe-test/2024-03-14-fe-test-e2e/",
+        "teaser": null
       }]

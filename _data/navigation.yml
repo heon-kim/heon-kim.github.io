@@ -22,3 +22,5 @@ categories:
     url: /categories/network/
   - title: "스터디"
     url: /categories/study/
+  - title: "FE 테스트"
+    url: /categories/fe-test/
