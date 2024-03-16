@@ -40,4 +40,10 @@ var store = [{
         "tags": ["test"],
         "url": "/fe-test/2024-03-14-fe-test-e2e/",
         "teaser": null
+      },{
+        "title": "프로젝트의 기한을 관리하고, 문서를 관리 하며 느낀점",
+        "excerpt":"🪫 기존의 프로젝트 개발은 기한 관리, 문서 관리 창구 없이 무작위 방식으로 진행이 되었다. 이러한 방식은 효율적이지 않은 것 같아, 기한 관리, 문서 관리 창구 생성을 먼저 해야했다. 다행히 먼저 사내에 사용하고 있는 시스템이 있었다. (사실 어떤 툴이던지 상관은 없는 내용이다.) 기한 관리 - Azure Devops의 Iteration 관리 시스템 Iteration 기간을...","categories": ["project"],
+        "tags": ["project"],
+        "url": "/project/2024-03-16-project-manage/",
+        "teaser": null
       }]
