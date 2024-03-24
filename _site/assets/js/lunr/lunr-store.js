@@ -46,4 +46,10 @@ var store = [{
         "tags": ["project"],
         "url": "/project/2024-03-16-project-manage/",
         "teaser": null
+      },{
+        "title": "프로젝트 S 설명 및 회고",
+        "excerpt":"🗓️ 프로젝트 설명 기존에 작성된 사용자 사이트와 관리자 사이트의 전체 UI/UX를 개선하고, 버그 및 코드 관리 클라우드와 앱패키지를 통해 서비스 출시하였습니다. 한 개의 프로젝트에 두 가지 사이트를 동시에 개발해야 했습니다. 사용자 사이트 vanilla JS MS Office 문서 내의 애드인 기능을 통해 문서의 정보를 저장/확인하고, 문서 원본을 서버에 등록하고 증명을 받을 수...","categories": ["project"],
+        "tags": ["project"],
+        "url": "/project/2024-03-25-project-s/",
+        "teaser": null
       }]

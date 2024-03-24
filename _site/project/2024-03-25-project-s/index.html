@@ -52,8 +52,8 @@
     
     <meta charset="utf-8" />
 
-<!-- begin _includes/seo.html --><title>스위치의 기본 동작 | heon</title>
-<meta name="description" content="플러딩, 어드레스 러닝, 포워딩/필터링">
+<!-- begin _includes/seo.html --><title>프로젝트 S 설명 및 회고 | heon</title>
+<meta name="description" content="입사 후 첫번째 프로젝트 진행 회고">
 
 
   <meta name="author" content="heon">
@@ -65,32 +65,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Heon-Log">
-<meta property="og:title" content="스위치의 기본 동작">
-<meta property="og:url" content="http://localhost:4000/network/2024-01-15-network-switch/">
+<meta property="og:title" content="프로젝트 S 설명 및 회고">
+<meta property="og:url" content="http://localhost:4000/project/2024-03-25-project-s/">
 
 
-  <meta property="og:description" content="플러딩, 어드레스 러닝, 포워딩/필터링">
-
-
-
+  <meta property="og:description" content="입사 후 첫번째 프로젝트 진행 회고">
 
 
 
 
-  <meta property="article:published_time" content="2024-01-15T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2024-01-15T00:00:00+09:00">
+  <meta property="article:published_time" content="2024-03-25T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2024-03-25T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/network/2024-01-15-network-switch/">
+
+<link rel="canonical" href="http://localhost:4000/project/2024-03-25-project-s/">
 
 
 
@@ -390,15 +390,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="스위치의 기본 동작">
-    <meta itemprop="description" content="플러딩, 어드레스 러닝, 포워딩/필터링">
-    <meta itemprop="datePublished" content="2024-01-15T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2024-01-15T00:00:00+09:00">
+    <meta itemprop="headline" content="프로젝트 S 설명 및 회고">
+    <meta itemprop="description" content="입사 후 첫번째 프로젝트 진행 회고">
+    <meta itemprop="datePublished" content="2024-03-25T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2024-03-25T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">스위치의 기본 동작
+          <h1 id="page-title" class="page__title" itemprop="headline">프로젝트 S 설명 및 회고
 </h1>
           
 
@@ -407,7 +407,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2024-01-15T00:00:00+09:00">January 15, 2024</time>
+        <time datetime="2024-03-25T00:00:00+09:00">March 25, 2024</time>
       </span>
     
 
@@ -425,143 +425,116 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#스위치의-기본-동작">스위치의 기본 동작</a><ul><li><a href="#1-플러딩-flooding">1. 플러딩 (Flooding)</a></li><li><a href="#2-어드레스-러닝">2. 어드레스 러닝</a></li><li><a href="#3-포워딩필터링">3. 포워딩/필터링</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#️프로젝트-설명">🗓️ 프로젝트 설명</a></li><li><a href="#️프로젝트-시작">🗄️ 프로젝트 시작</a></li><li><a href="#️프로젝트-개발-및-배포-사이클-구체화">🗓️ 프로젝트 개발 및 배포 사이클 구체화</a></li><li><a href="#uiux-개선">🎨 UI/UX 개선</a></li><li><a href="#버그-개선">🐞 버그 개선</a></li><li><a href="#e2e-테스트-도입">📝 E2E 테스트 도입</a></li><li><a href="#배포-관리">🛫 배포 관리</a></li><li><a href="#느낀점">🌈 느낀점</a></li></ul>
 
             </nav>
           </aside>
         
-        <blockquote>
-  <p>🌷 <strong>개요</strong></p>
+        <h3 id="️프로젝트-설명">🗓️ 프로젝트 설명</h3>
 
-  <p><strong>스위치</strong></p>
+<p>기존에 작성된 사용자 사이트와 관리자 사이트의 전체 UI/UX를 개선하고, 버그 및 코드 관리</p>
 
-  <ul>
-    <li>2계층 장비</li>
-    <li>네트워크의 가장 핵심적인 장비</li>
-    <li>MAC 주소를 기반으로 동작</li>
-  </ul>
+<p>클라우드와 앱패키지를 통해 서비스 출시하였습니다.</p>
 
-  <p><strong>스위치의 기본 동작</strong></p>
-
-  <ul>
-    <li>네트워크 중간에서 패킷을 받아, 필요한 곳에만 보내준다. (네트워크의 통신을 중재)</li>
-    <li>아무 설정을 하지 않고 연결만 해도 MAC 주소를 기반으로 패킷을 전달한다.</li>
-  </ul>
-
-  <p><strong>추가 기능</strong></p>
-
-  <ul>
-    <li>VLAN 기능 : 논리적으로 네트워크를 분리</li>
-    <li>STP 기능 (스패닝 트리 프로토콜) : 네트워크의 루프 방지</li>
-  </ul>
-</blockquote>
-
-<h2 id="스위치의-기본-동작">스위치의 기본 동작</h2>
+<p>한 개의 프로젝트에 두 가지 사이트를 동시에 개발해야 했습니다.</p>
 
 <ul>
-  <li>스위치의 필요성
+  <li>사용자 사이트
     <ul>
-      <li>스위치가 없다면
-        <ul>
-          <li>패킷을 전송할 때 서로 경합해 그로 인한 네트워크 성능 저하</li>
-        </ul>
-      </li>
-      <li>스위치를 통해
-        <ul>
-          <li>패킷을 동시에 여러 장비가 서로 간섭없이 통신</li>
-          <li>통신 효율성이 향상</li>
-        </ul>
-      </li>
+      <li><code class="language-plaintext highlighter-rouge">vanilla JS</code></li>
+      <li>MS Office 문서 내의 <strong>애드인 기능</strong>을 통해 문서의 정보를 저장/확인하고, 문서 원본을 서버에 등록하고 증명을 받을 수 있는 서비스</li>
     </ul>
   </li>
-  <li>
-    <p>스위치의 역할</p>
-
+  <li>관리자 사이트
     <ul>
-      <li>장비의 위치를 파악하고 <code class="language-plaintext highlighter-rouge">정확한 위치</code>로 패킷을 전송
-        <ul>
-          <li>정확한 위치는 <code class="language-plaintext highlighter-rouge">MAC 주소 테이블</code>을 통해 알 수 있다.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>MAC 주소 테이블</p>
-
-    <ul>
-      <li>
-        <p>MAC 주소와 포트 정보가 매핑되어 있다.</p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>MAC 주소</th>
-              <th>포트</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1111:2222:3333</td>
-              <td>Eth1</td>
-            </tr>
-            <tr>
-              <td>4444:5555:6666</td>
-              <td>Eth2</td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
-    </ul>
-  </li>
-  <li>스위치의 동작
-    <ul>
-      <li>테이블에 없는 주소를 가진 패킷은 전체 포트로 전송된다. (플러딩)</li>
-      <li>테이블에 있는 주소를 가진 패킷은 해당 포트로만 전송된다. (포워딩 또는 필터링)</li>
+      <li><code class="language-plaintext highlighter-rouge">vue JS</code></li>
+      <li>사용자가 저장한 문서의 정보의 현황을 관리하고, 서버에 저장된 문서 원본을 확인할 수 있는 서비스</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="1-플러딩-flooding">1. 플러딩 (Flooding)</h3>
+<h3 id="️프로젝트-시작">🗄️ 프로젝트 시작</h3>
 
-<ul>
-  <li>동작 방식 : 전체 포트로 패킷을 전달한다.</li>
-  <li>동작 조건 :
-    <ul>
-      <li>MAC 주소 테이블에 일치하는 도착지 MAC 주소 정보가 없는 경우</li>
-      <li>브로드캐스트, 멀티캐스트, 언노운 유니캐스트인 경우</li>
-    </ul>
-  </li>
-  <li>플러딩 공격 기법
-    <ul>
-      <li>스위치에 잘못된 MAC 주소를 학습시킴</li>
-      <li>MAC 테이블을 꽉 차게해 플러딩을 유도</li>
-    </ul>
-  </li>
-</ul>
+<p>처음에는 프로젝트의 BUG들을 QA에게 전달받아 처리를 하는 일로 시작을 했습니다.</p>
 
-<h3 id="2-어드레스-러닝">2. 어드레스 러닝</h3>
+<p>하지만 BUG가 너무 많았을 뿐더러, 사내의 다른 프로젝트들과 UI/UX가 차이가 많이 나서 먼저 전체의 UI/UX를 개선하면서 버그를 줄이는 프로젝트를 시작하게 되었습니다.</p>
 
-<ul>
-  <li>동작 방식 : MAC 주소 테이블을 만들고 유지한다.</li>
-  <li>동작 조건 : 특정 포트에 들어온 패킷의 출발지 MAC 주소와 포트번호를 MAC 주소 테이블에 기록</li>
-  <li>브로드캐스트나 멀티캐스트에 대한 MAC 주소를 학습할 수 없다!
-    <ul>
-      <li>출발지가 사용되지 않기 때문</li>
-    </ul>
-  </li>
-</ul>
+<h3 id="️프로젝트-개발-및-배포-사이클-구체화">🗓️ 프로젝트 개발 및 배포 사이클 구체화</h3>
 
-<h3 id="3-포워딩필터링">3. 포워딩/필터링</h3>
+<p>프로젝트의 기한 관리나 문서 관리가 되고 있지 않아, 사내에서 사용하고 있는 관리 시스템을 이용하여 기한 관리와 문서 관리를 시작했습니다.</p>
 
-<ul>
-  <li>동작 방식 : 특정 포트로 패킷을 전달</li>
-  <li>동작 조건 :
-    <ul>
-      <li>MAC 주소 테이블에 일치하는 도착지 MAC 주소 정보가 있는 경우</li>
-      <li>유니캐스트인 경우</li>
-    </ul>
-  </li>
-</ul>
+<p><strong>업무 효율 향상</strong></p>
+
+<p>기한 관리를 통해 업무 처리 속도를 가늠할 수 있게 되고, 문서 관리를 통해 다른 팀들과 의사소통 리소스를 절약할 수 있게 되어 업무 효율이 향상되었습니다. 이에 대한 회고를 아래 페이지에 작성해두었습니다.</p>
+
+<p><a href="https://www.heon-kim.github.io/project/2024-03-16-project-manage">프로젝트의 기한을 관리하고, 문서를 관리 하며 느낀점</a></p>
+
+<h3 id="uiux-개선">🎨 UI/UX 개선</h3>
+
+<p><strong>공통컴포넌트 사용으로 개발 부담 감소</strong></p>
+
+<p>사내 서비스들의 UI/UX를 공통으로 맞추어, 서비스들끼리 공통 컴포넌트를 공유하여 사용하도록 수정했습니다. 사내에서 사용하는 컴포넌트들의 UI/UX를 맞추니 서로의 코드를 참고하여 개발 부담이 많이 줄어든 것을 느꼈습니다.</p>
+
+<p><strong>따로 함께 일하기</strong></p>
+
+<p>사내의 프론트엔드 개발자끼리 코드를 100% 오픈하여 서로 참고하고 잘 모르는 부분은 서로 질문하고 도와주는 환경이 가장 좋았습니다. 각자 다른 프로젝트를 하고 있지만 하나의 서비스처럼 개발을 해서 함께 일하는 느낌이 가장 많이 들었던 프로젝트입니다.</p>
+
+<h3 id="버그-개선">🐞 버그 개선</h3>
+
+<p><strong>sonarQube 정적 분석을 통해 코드 품질 개선</strong></p>
+
+<p>배포 프로세스 중에 sonarQube 정적 분석을 통해 코드의 품질을 평가를 하는 단계가 있습니다. 이때 Critical로 분류된 이슈가 100개 가까이 되어 QA 팀에서 코드의 품질을 개선해달라는 요청이 있었습니다. Critical로 분류된 이슈는 장애를 발생시킬 가능성이 높기 때문에 우선순위를 높여 처리를 하되, 1주일 단위로 Critical의 개수를 10개씩 줄여나가 모든 Critical 이슈를 처리했습니다.</p>
+
+<p><strong>Clean Code의 중요성</strong></p>
+
+<p>이 과정에서 가장 많이 생겼던 이슈가 하나의 함수안에 15개 이상의 조건이 있는 경우에 대한 이슈였습니다. 이때 하나의 함수를 기능에 따라 여러개의 함수로 분류하고, 단순 <code class="language-plaintext highlighter-rouge">if else</code> 문 보다는 <code class="language-plaintext highlighter-rouge">if return</code>을 통해 조건문 부하를 줄이고, <code class="language-plaintext highlighter-rouge">삼항연산자</code>를 이용해서 가독성을 높이는 방법으로 처리하니, 전보다 유지보수가 훨씬 쉬워진 것을 느끼고 가독성의 중요성을 깨달았습니다.</p>
+
+<p><strong>서비스 품질 개선</strong></p>
+
+<p>또한 QA 팀에서 수동 테스트 결과로 검출된 버그를 전달받아 2주에 한번 처리하여 기존 모든 페이지에서 발생하던 버그를 모두 처리하고 서비스의 품질을 높였습니다.</p>
+
+<h3 id="e2e-테스트-도입">📝 E2E 테스트 도입</h3>
+
+<p>개발 단계에서 발견되지 못하고 배포 요청을 하게 되는 일이 반복되자, QA팀에서 TDD를 제안했습니다. 초기에는 단순히 유닛테스트를 넣으려고 했지만, 사용자의 입장에서 사용 흐름을 테스트할 수 있는 E2E 테스트를 최종 도입하게 되었습니다.</p>
+
+<p>아래 페이지에 E2E 테스트를 도입하기 전의 생각과 회고를 작성해두었습니다.</p>
+
+<p><a href="https://www.heon-kim.github.io/fe-test/2024-03-14-fe-test-e2e/">E2E 테스트 도입</a></p>
+
+<h3 id="배포-관리">🛫 배포 관리</h3>
+
+<p><strong>개발환경</strong></p>
+
+<p>Jenkins를 이용하여 Git → E2E → SonarQube → Docker 순으로 배포 관리했습니다.
+로컬 환경에서 기능을 추가하는 중 발생한 이슈를 E2E 테스트와 SonarQube를 이용해 테스트를 해볼 수 있어서 코드의 안정성을 보장받을 수 있어 좋았습니다.</p>
+
+<p><strong>SaaS 서비스</strong></p>
+
+<p>Azure Pipeline을 이QA에게 배포 요청하면 QA테스트 → 사내 사용 테스트 → 배포를 하는 과정을 거쳤습니다. 이때 QA 테스트에서 버그가 발견되면 수정하고 다시 배포하는 과정을 반복하여 서비스를 안정적으로 배포했습니다.</p>
+
+<p><strong>PaaS 서비스</strong></p>
+
+<p>내부 폐쇄망을 사용하는 고객에게 서비스를 제공하기 위해 실제 물리서버에 쿠버네티스 환경을 만들고 서비스 이미지를 배포한 뒤 폐쇄망을 만들어 운영을 해보는 테스트를 해보았습니다. 웹 개발을 시작하면서 물리환경이나 네트워크 환경에 대해 공부해 볼 기회가 많이 없었는데, 이 기회를 통해 공부를 하면서 스스로 만든 서비스를 제공할 수 있어서 값진 경험이 되었습니다.</p>
+
+<hr />
+
+<h3 id="느낀점">🌈 느낀점</h3>
+
+<h2 id="liked">Liked</h2>
+
+<p>서비스를 배포하고 유지보수 관리를 하는 환경을 주도적으로 만들 수 있어 좋았습니다.</p>
+
+<p>짧은 시간동안 모든 과정에 참여하여 서비스의 퀄리티를 손수 올릴 수 있어 좋았습니다.</p>
+
+<h2 id="lacked">Lacked</h2>
+
+<p>프로젝트를 이끌어 주시는 분이 있었지만, 함께 프로젝트를 만들어가는 팀원이 없어서 아쉬웠습니다. 주도적으로 일할 수 있어 좋았지만, 혼자 일하는 것 같은 느낌이 들 때가 있어 가끔 힘이 들 때가 있었습니다.</p>
+
+<h2 id="learned">Learned</h2>
+
+<p>sonarQube, e2e테스트, docker, kubernetes 등 코드 및 형상 관리에 대해 많이 배웠습니다.</p>
+
+<p>단순히 웹사이트를 만드는 것이 전부가 아니라 유지 보수를 하기 쉽고, 오류가 적고 성능이 좋은 코드를 만드는 것이 중요하다는 것을 많이 배울 수 있어 좋았습니다.</p>
 
         
       </section>
@@ -580,14 +553,14 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#network" class="page__taxonomy-item" rel="tag">network</a>
+      <a href="/categories/#project" class="page__taxonomy-item" rel="tag">project</a>
     
     </span>
   </p>
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-01-15">January 15, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-25">March 25, 2024</time></p>
 
 
       </footer>
@@ -597,11 +570,11 @@
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Prev</a>
+      <a href="/project/2024-03-16-project-manage/" class="pagination--pager" title="프로젝트의 기한을 관리하고, 문서를 관리 하며 느낀점
+">Prev</a>
     
     
-      <a href="/network/2024-01-16-network-switch/" class="pagination--pager" title="스위치의 추가 기능 - VLAN
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -616,42 +589,6 @@
     <div class="page__related">
       <h4 class="page__related-title">You may also enjoy</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/project/2024-03-25-project-s/" rel="permalink">프로젝트 S 설명 및 회고
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2024-03-25T00:00:00+09:00">March 25, 2024</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">입사 후 첫번째 프로젝트 진행 회고
-</p>
-  </article>
-</div>
-
         
           
 
@@ -756,6 +693,42 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">라우팅, 스위칭
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/study/2024-03-09-js-study/" rel="permalink">javascript DeepDive 스터디 회고
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2024-03-09T00:00:00+09:00">March 9, 2024</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">유익했던 스터디를 마치며
 </p>
   </article>
 </div>
