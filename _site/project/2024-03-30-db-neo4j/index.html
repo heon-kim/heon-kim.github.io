@@ -52,30 +52,36 @@
     
     <meta charset="utf-8" />
 
-<!-- begin _includes/seo.html --><title>Heon-Log &#124; Page 2</title>
-<meta name="description" content="this is my blog!">
+<!-- begin _includes/seo.html --><title>(Neo4j) 0. Neo4j 개념과 구현 방법 | heon</title>
+<meta name="description" content="neo4j가 뭔데? 그래프 데이터?">
 
 
   <meta name="author" content="heon">
   
+  <meta property="article:author" content="heon">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Heon-Log">
-<meta property="og:title" content="Heon-Log">
-<meta property="og:url" content="http://localhost:4000/page2/">
+<meta property="og:title" content="(Neo4j) 0. Neo4j 개념과 구현 방법">
+<meta property="og:url" content="http://localhost:4000/project/2024-03-30-db-neo4j/">
 
 
-  <meta property="og:description" content="this is my blog!">
-
-
-
+  <meta property="og:description" content="neo4j가 뭔데? 그래프 데이터?">
 
 
 
 
 
+
+
+  <meta property="article:published_time" content="2024-03-30T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2024-03-30T00:00:00+09:00">
 
 
 
@@ -84,10 +90,8 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/page2/">
+<link rel="canonical" href="http://localhost:4000/project/2024-03-30-db-neo4j/">
 
-
-  <link rel="prev" href="http://localhost:4000/">
 
 
 
@@ -165,7 +169,7 @@
     <meta name="theme-color" content="#ffffff">
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -393,29 +397,197 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="(Neo4j) 0. Neo4j 개념과 구현 방법">
+    <meta itemprop="description" content="neo4j가 뭔데? 그래프 데이터?">
+    <meta itemprop="datePublished" content="2024-03-30T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2024-03-30T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">(Neo4j) 0. Neo4j 개념과 구현 방법
+</h1>
+          
+
+  <p class="page__meta">
     
-      <h1 id="page-title" class="page__title"></h1>
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2024-03-30T00:00:00+09:00">March 30, 2024</time>
+      </span>
     
+
     
 
-<h3 class="archive__subtitle">Recent posts</h3>
+    
+  </p>
 
 
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#그래프-데이터를-사용해야하는-이유">그래프 데이터를 사용해야하는 이유</a></li><li><a href="#그래프-데이터를-다룰-수-있는-데이터베이스-관리-시스템">그래프 데이터를 다룰 수 있는 데이터베이스 관리 시스템</a><ul><li><a href="#neo4j-db-구성-방법">Neo4j DB 구성 방법</a></li><li><a href="#neo4j-데이터-사용방법">Neo4j 데이터 사용방법</a></li><li><a href="#neo4j-documentation">Neo4j documentation</a></li><li><a href="#그래서-어떤-그래프를-그리는데">그래서 어떤 그래프를 그리는데?</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="그래프-데이터를-사용해야하는-이유">그래프 데이터를 사용해야하는 이유</h2>
+
+<p>우리가 살고있는 세상은 정보가 연결이 되어 있습니다.
+예를 들어 한 사람이 사과를 산다면 이 사람과 판매원, 판매점이 연결이 됩니다. 이러한 정보는 ‘관계’에 종속이 되어 있기 때문에 한 사람의 정보를 알면 ‘관계’를 통해 숨겨진 다른 정보도 쉽게 찾을 수 있습니다.</p>
+
+<p>기존 <code class="language-plaintext highlighter-rouge">관계형 데이터베이스</code>는 이러한 관계를 저장할 수 있지만, 종종 엄격한 스키마에 묶여 있는 값비싼 JOIN 작업이나 교차 조회로 탐색합니다. “관계형” 데이터베이스는 관계를 제대로 처리하지 못한다는 것이 밝혀졌습니다. <code class="language-plaintext highlighter-rouge">그래프 데이터베이스</code>에는 JOIN이나 조회가 없습니다. 이 시스템은 데이터를 빠르게 탐색할 수 있도록 최적화되어 있습니다.</p>
+
+<hr />
+
+<h2 id="그래프-데이터를-다룰-수-있는-데이터베이스-관리-시스템">그래프 데이터를 다룰 수 있는 데이터베이스 관리 시스템</h2>
+
+<p>Neo4j 그래프 데이터베이스는 <code class="language-plaintext highlighter-rouge">테이블이나 문서 대신</code> 노드와 관계를 저장합니다.</p>
+
+<p>Neo4j는 단순히 데이터를 그래프로 그리는 용도가 아니라, 저장부터 그래프 구조로 저장을 하는 기술입니다.</p>
+
+<p>그래프 데이터 구조는 관계로 연결될 수 있는 <strong>Nodes</strong>로 구성되어 있습니다.</p>
+
+<p>아래는 세 개의 <strong>Nodes</strong>(원)와 세 개의 <strong>Relationships</strong>(화살표)가 있는 그래프의 이미지입니다.</p>
+
+<p><img src="/assets/images/posts_img/db/2024-03-30-db-neo4j-0.png" alt="Alt text" /></p>
+
+<p>그래프 데이터의 구성은 아래의 페이지에서 자세하게 설명했습니다.</p>
+
+<p><a href="https://www.notion.so/Neo4j-2d88d97d5b0d4a1182937bd3bb19e695?pvs=21">[Neo4j] 그래프의 구성</a></p>
+
+<hr />
+
+<h3 id="neo4j-db-구성-방법">Neo4j DB 구성 방법</h3>
+
+<ol>
+  <li>데이터 베이스 구축 방법
+    <ol>
+      <li>온프레미스 다운로드
+        <ol>
+          <li>https://neo4j.com/deployment-center/</li>
+        </ol>
+      </li>
+      <li>도커 이미지
+        <ol>
+          <li>https://hub.docker.com/_/neo4j/</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>데스크탑 설치
+    <ol>
+      <li>https://neo4j.com/docs/desktop-manual/current/</li>
+    </ol>
+  </li>
+  <li>온라인 샌드박스
+    <ol>
+      <li>https://neo4j.com/sandbox/</li>
+    </ol>
+  </li>
+</ol>
+
+<p>저는 쿠버네티스를 구성해서 웹서비스를 구현하기 때문에 도커 이미지를 사용했습니다. 만약 간단 테스트를 원한다면, 온라인 샌드박스를 사용해보는 것을 추천합니다 ㅎㅎ</p>
+
+<hr />
+
+<h3 id="neo4j-데이터-사용방법">Neo4j 데이터 사용방법</h3>
+
+<p>Neo4j를 Python, Go, Javascript 등에서 사용할 수 있습니다.</p>
+
+<p>저는 프론트엔드에서 Javascript, VueJS를 이용하여 DB에 접속하여 그래프를 웹서비스에 적용하는 방법과, 백엔드에서 Go를 이용하여 API를 제공하는 방법을 모두 사용해봤는데, 드라이버 설치하여 간단하게 사용할 수 있었습니다.</p>
+
+<p><a href="https://neo4j.com/docs/create-applications/">Create applications with Neo4j - Neo4j Documentation</a></p>
+
+<hr />
+
+<h3 id="neo4j-documentation">Neo4j documentation</h3>
+
+<p>Neo4j는 문서화와 커뮤니티가 아주 잘 되어 있습니다. 찾고 있는 거의 모든 정보가 문서에 친절하게 작성되어 있어서 따로 구글링을 많이 하지 않아도 된다는 점이 가장 편한점이었습니다.</p>
+
+<p><a href="https://neo4j.com/docs/getting-started/">Getting Started Guide for Neo4j version 5</a></p>
+
+<hr />
+
+<h3 id="그래서-어떤-그래프를-그리는데">그래서 어떤 그래프를 그리는데?</h3>
+
+<p>APAC 의 보안 위협 정보 그래프 사용 예시</p>
+
+<p><a href="https://neo4j.com/blog/standard-chartered-threat-intelligence-using-knowledge-graphs/">Standard Chartered: Threat Intelligence Using Knowledge Graphs - Graph Database &amp; Analytics</a></p>
+
+<p><img src="/assets/images/posts_img/db/2024-03-20-db-neo4j-1.png" alt="Alt text" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
 
 
-<div class="entries-list">
   
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
     
+      <a href="/categories/#db" class="page__taxonomy-item" rel="tag">db</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-30">March 30, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/project/2024-03-25-project-s/" class="pagination--pager" title="프로젝트 S 설명 및 회고
+">Prev</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/study/2024-03-09-js-study/" rel="permalink">javascript DeepDive 스터디 회고
+        <a href="/project/2024-03-25-project-s/" rel="permalink">프로젝트 S 설명 및 회고
 </a>
       
     </h2>
@@ -426,7 +598,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2024-03-09T00:00:00+09:00">March 9, 2024</time>
+        <time datetime="2024-03-25T00:00:00+09:00">March 25, 2024</time>
       </span>
     
 
@@ -436,22 +608,22 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">유익했던 스터디를 마치며
+    <p class="archive__item-excerpt" itemprop="description">입사 후 첫번째 프로젝트 진행 회고
 </p>
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/study/2024-01-19-cert-data/" rel="permalink">2024 정보처리기사 1회차 실기 정보
+        <a href="/project/2024-03-16-project-manage/" rel="permalink">프로젝트의 기한을 관리하고, 문서를 관리 하며 느낀점
 </a>
       
     </h2>
@@ -462,7 +634,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2024-01-19T00:00:00+09:00">January 19, 2024</time>
+        <time datetime="2024-03-16T00:00:00+09:00">March 16, 2024</time>
       </span>
     
 
@@ -472,22 +644,22 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">정처기 합격 해보자
+    <p class="archive__item-excerpt" itemprop="description">개발 및 배포 사이클 구체화 회고
 </p>
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/network/2024-01-16-network-switch2/" rel="permalink">스위치의 추가 기능 - STP
+        <a href="/fe-test/2024-03-14-fe-test-e2e/" rel="permalink">E2E 테스트 도입 계기와 도입 후 느낀 점
 </a>
       
     </h2>
@@ -498,7 +670,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2024-01-16T00:00:00+09:00">January 16, 2024</time>
+        <time datetime="2024-03-14T00:00:00+09:00">March 14, 2024</time>
       </span>
     
 
@@ -508,22 +680,22 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">STP
+    <p class="archive__item-excerpt" itemprop="description">FE 테스트로 유닛테스트가 아닌 E2E 테스트를 도입하게 된 이유
 </p>
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/network/2024-01-16-network-switch/" rel="permalink">스위치의 추가 기능 - VLAN
+        <a href="/network/2024-03-12-network-router/" rel="permalink">라우터 / L3 스위치 - 3계층 장비
 </a>
       
     </h2>
@@ -534,7 +706,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2024-01-16T00:00:00+09:00">January 16, 2024</time>
+        <time datetime="2024-03-12T00:00:00+09:00">March 12, 2024</time>
       </span>
     
 
@@ -544,93 +716,18 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">VLAN
+    <p class="archive__item-excerpt" itemprop="description">라우팅, 스위칭
 </p>
   </article>
 </div>
 
+        
+      </div>
+    </div>
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/network/2024-01-15-network-switch/" rel="permalink">스위치의 기본 동작
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2024-01-15T00:00:00+09:00">January 15, 2024</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">플러딩, 어드레스 러닝, 포워딩/필터링
-</p>
-  </article>
-</div>
-
   
 </div>
 
-
-<nav class="pagination">
-  
-  <ul>
-    
-    
-      
-        <li><a href="/">Prev</a></li>
-      
-    
-
-    
-    
-      <li><a href="/">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-
-    
-    
-
-    
-      <li><a href="#" class="disabled current">2</a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled"><span aria-hidden="true">Next</span></a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
-</div>
     </div>
 
     
@@ -680,6 +777,36 @@
 
 
 
+
+
+    <script>
+  "use strict";
+
+  (function () {
+    var commentContainer = document.querySelector("#utterances-comments");
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement("script");
+    script.setAttribute("src", "https://utteranc.es/client.js");
+    script.setAttribute("repo", "heon-kim/blog-comments");
+    script.setAttribute(
+      "issue-term",
+      'pathname'
+    );
+    script.setAttribute(
+      "theme",
+      'github-light'
+    );
+    script.setAttribute("crossorigin", "anonymous");
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
 
 
 
