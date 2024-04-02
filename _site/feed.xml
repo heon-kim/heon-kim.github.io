@@ -1,4 +1,133 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-30T10:58:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Heon-Log</title><subtitle>this is my blog!</subtitle><author><name>heon</name></author><entry><title type="html">(Neo4j) 0. Neo4j 개념과 구현 방법</title><link href="http://localhost:4000/project/2024-03-30-db-neo4j/" rel="alternate" type="text/html" title="(Neo4j) 0. Neo4j 개념과 구현 방법" /><published>2024-03-30T00:00:00+09:00</published><updated>2024-03-30T00:00:00+09:00</updated><id>http://localhost:4000/project/db-neo4j</id><content type="html" xml:base="http://localhost:4000/project/2024-03-30-db-neo4j/"><![CDATA[<h2 id="그래프-데이터를-사용해야하는-이유">그래프 데이터를 사용해야하는 이유</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-03T07:26:25+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Heon-Log</title><subtitle>this is my blog!</subtitle><author><name>heon</name></author><entry><title type="html">(Neo4j) 1. Neo4j의 구성요소</title><link href="http://localhost:4000/project/2024-04-03-db-neo4j/" rel="alternate" type="text/html" title="(Neo4j) 1. Neo4j의 구성요소" /><published>2024-04-03T00:00:00+09:00</published><updated>2024-04-03T00:00:00+09:00</updated><id>http://localhost:4000/project/db-neo4j</id><content type="html" xml:base="http://localhost:4000/project/2024-04-03-db-neo4j/"><![CDATA[<hr />
+
+<p>Neo4j 속성 그래프 데이터베이스 모델은 다음과 같이 구성되어 있습니다</p>
+
+<ul>
+  <li><strong>Nodes</strong>: 엔티티
+    <ul>
+      <li>labels: 어떤 종류의 노드인지 정의(분류)하기 위해 가지는 속성</li>
+      <li>properties: 노드와 관계를 설명하는 속성(키-값 쌍)</li>
+    </ul>
+  </li>
+  <li><strong>Relationships</strong>: source node와 target node 사이의 연결
+    <ul>
+      <li>direction: 방향(한 방향)</li>
+      <li>type: 어떤 관계인지 정의(분류)하기 위해 가지는 속성 (한개의 타입)</li>
+      <li>properties: 노드와 관계를 설명하는 속성(키-값 쌍)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="그래프-예시">그래프 예시</h3>
+
+<p><img src="/assets/images/posts_img/db/2024-04-03-db-neo4j-0.png" alt="Alt text" /></p>
+
+<h3 id="node">Node</h3>
+
+<p><img src="/assets/images/posts_img/db/2024-04-03-db-neo4j-1.png" alt="Alt text" /></p>
+
+<ul>
+  <li>labels : <code class="language-plaintext highlighter-rouge">Person</code>, <code class="language-plaintext highlighter-rouge">Actor</code></li>
+  <li>properties
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">name: Tom Hanks</code></li>
+      <li><code class="language-plaintext highlighter-rouge">born: 1956</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="node-labels">Node labels</h3>
+
+<ol>
+  <li>labels(라벨)을 이용해서 노드를 그룹화해 하나의 세트로 만들 수 있습니다.
+    <ol>
+      <li>예를 들어 <code class="language-plaintext highlighter-rouge">User</code>를 대표하는 모든 노드는 <code class="language-plaintext highlighter-rouge">User</code> 라벨로 표시될 수 있다. 이를 통해 Neo4j에서 <code class="language-plaintext highlighter-rouge">User</code>노드에서만 작업을 수행할 수 있습니다.</li>
+    </ol>
+  </li>
+  <li>런타임 동안 라벨을 추가하고 제거할 수 있기 때문에, 노드의 임시 상태를 표시하는 데에도 사용할 수 있습니다.
+    <ol>
+      <li>예를 들어 <code class="language-plaintext highlighter-rouge">Stop</code> 라벨은 정지된 은행 계좌를 나타내는 데 사용될 수 있으며, <code class="language-plaintext highlighter-rouge">Season</code> 라벨은 현재 제철인 채소를 나타낼 수 있습니다.</li>
+    </ol>
+  </li>
+  <li>노드는 0에서 많은 라벨을 가질 수 있습니다.
+    <ol>
+      <li>아래 그래프에서 <code class="language-plaintext highlighter-rouge">Person</code>, <code class="language-plaintext highlighter-rouge">Actor</code> 및 <code class="language-plaintext highlighter-rouge">Movie</code>는 노드를 설명(분류)하는 데 사용됩니다. 데이터의 다른 차원을 표현하기 위해 더 많은 라벨을 추가할 수 있습니다.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>다음 그래프는 여러 라벨의 사용을 보여줍니다.</p>
+
+<p><img src="/assets/images/posts_img/db/2024-04-03-db-neo4j-2.png" alt="Alt text" /></p>
+
+<h3 id="relationship">Relationship</h3>
+
+<p><img src="/assets/images/posts_img/db/2024-04-03-db-neo4j-3.png" alt="img" /></p>
+
+<p>Relationship은 source 노드와 target 노드 사이의 연결이 어떻게 관련되어 있는지 설명합니다.</p>
+
+<ul>
+  <li>type: <code class="language-plaintext highlighter-rouge">ACTED_IN</code></li>
+  <li>properties
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">roles: ['Forrest']</code></li>
+      <li><code class="language-plaintext highlighter-rouge">performance: 5</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Relationship을 생성하기 위해서는 source 노드와 target 노드를 지정해야합니다.</p>
+
+<p>방향이 중요하지 않은 정보라면 양방향이 아닌, 방향이 없는 relationship을 생성할 수 있습니다.</p>
+
+<p>또한 자기 자신을 향하는 relationship을 생성할 수 있습니다.</p>
+
+<h3 id="relationship-type">Relationship type</h3>
+
+<p>하나의 relationship은 하나의 타입을 가질 수 있습니다.</p>
+
+<p>아래의 relationship은 <code class="language-plaintext highlighter-rouge">ACTED_IN</code> 타입을 가지고, Tom Hanks 노드를 소스 노드로, Movie 노드를 타켓 노드로 가지고 있습니다.</p>
+
+<p><img src="/assets/images/posts_img/db/2024-04-03-db-neo4j-4.png" alt="Alt text" /></p>
+
+<h3 id="properties">Properties</h3>
+
+<p>속성은 노드와 관계에 데이터를 저장하는 데 사용되는 키-값 쌍입니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">number</code>, <code class="language-plaintext highlighter-rouge">string</code>, 또는 <code class="language-plaintext highlighter-rouge">boolean</code>과 같은 다른 데이터 유형을 보유할 수 있습니다.</p>
+
+<p><strong><em>Example 1. Number</em></strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE (:Example {a: 1, b: 3.14})
+</code></pre></div></div>
+
+<ul>
+  <li>The property <code class="language-plaintext highlighter-rouge">a</code> has the type <code class="language-plaintext highlighter-rouge">integer</code> with the value <code class="language-plaintext highlighter-rouge">1</code>.</li>
+  <li>The property <code class="language-plaintext highlighter-rouge">b</code> has the type <code class="language-plaintext highlighter-rouge">float</code> with the value <code class="language-plaintext highlighter-rouge">3.14</code>.</li>
+</ul>
+
+<p><strong><em>Example 2. String and boolean</em></strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE (:Example {c: 'This is an example string', d: true, e: false})
+</code></pre></div></div>
+
+<ul>
+  <li>The property <code class="language-plaintext highlighter-rouge">c</code> has the type <code class="language-plaintext highlighter-rouge">string</code> with the value <code class="language-plaintext highlighter-rouge">'This is an example string'</code>.</li>
+  <li>The property <code class="language-plaintext highlighter-rouge">d</code> has the type <code class="language-plaintext highlighter-rouge">boolean</code> with the value <code class="language-plaintext highlighter-rouge">true</code>.</li>
+  <li>The property <code class="language-plaintext highlighter-rouge">e</code> has the type <code class="language-plaintext highlighter-rouge">boolean</code> with the value <code class="language-plaintext highlighter-rouge">false</code>.</li>
+</ul>
+
+<p><strong><em>Example 3. Lists</em></strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE (:Example {f: [1, 2, 3], g: [2.71, 3.14], h: ['abc', 'example'], i: [true, true, false]})
+</code></pre></div></div>
+
+<ul>
+  <li>The property <code class="language-plaintext highlighter-rouge">f</code> contains an array with the value <code class="language-plaintext highlighter-rouge">[1, 2, 3]</code>.</li>
+  <li>The property <code class="language-plaintext highlighter-rouge">g</code> contains an array with the value <code class="language-plaintext highlighter-rouge">[2.71, 3.14]</code>.</li>
+  <li>The property <code class="language-plaintext highlighter-rouge">h</code> contains an array with the value <code class="language-plaintext highlighter-rouge">['abc', 'example']</code>.</li>
+  <li>The property <code class="language-plaintext highlighter-rouge">i</code> contains an array with the value <code class="language-plaintext highlighter-rouge">[true, true, false]</code>.</li>
+</ul>]]></content><author><name>heon</name></author><category term="db" /><category term="db" /><summary type="html"><![CDATA[neo4j의 node와 relationship]]></summary></entry><entry><title type="html">(Neo4j) 0. Neo4j 개념과 구현 방법</title><link href="http://localhost:4000/project/2024-03-30-db-neo4j/" rel="alternate" type="text/html" title="(Neo4j) 0. Neo4j 개념과 구현 방법" /><published>2024-03-30T00:00:00+09:00</published><updated>2024-03-30T00:00:00+09:00</updated><id>http://localhost:4000/project/db-neo4j</id><content type="html" xml:base="http://localhost:4000/project/2024-03-30-db-neo4j/"><![CDATA[<h2 id="그래프-데이터를-사용해야하는-이유">그래프 데이터를 사용해야하는 이유</h2>
 
 <p>우리가 살고있는 세상은 정보가 연결이 되어 있습니다.
 예를 들어 한 사람이 사과를 산다면 이 사람과 판매원, 판매점이 연결이 됩니다. 이러한 정보는 ‘관계’에 종속이 되어 있기 때문에 한 사람의 정보를 알면 ‘관계’를 통해 숨겨진 다른 정보도 쉽게 찾을 수 있습니다.</p>
@@ -21,7 +150,7 @@
 
 <p>그래프 데이터의 구성은 아래의 페이지에서 자세하게 설명했습니다.</p>
 
-<p><a href="https://www.notion.so/Neo4j-2d88d97d5b0d4a1182937bd3bb19e695?pvs=21">[Neo4j] 그래프의 구성</a></p>
+<p><a href="https://heon-kim.github.io/project/2024-04-03-db-neo4j/">[Neo4j] 그래프의 구성</a></p>
 
 <hr />
 
@@ -78,7 +207,7 @@
 
 <h3 id="그래서-어떤-그래프를-그리는데">그래서 어떤 그래프를 그리는데?</h3>
 
-<p>APAC 의 보안 위협 정보 그래프 사용 예시</p>
+<p>아래는 APAC 의 보안 위협 정보 그래프 사용 예시입니다. 이 그래프처럼 그래프 DB를 이용하면 수많은 데이터 들이 연결되며, 그 연결 사이에서 숨겨진 정보를 찾아낼 수 있습니다.</p>
 
 <p><a href="https://neo4j.com/blog/standard-chartered-threat-intelligence-using-knowledge-graphs/">Standard Chartered: Threat Intelligence Using Knowledge Graphs - Graph Database &amp; Analytics</a></p>
 
@@ -1259,135 +1388,4 @@ TTL은 실제 시간이 아니라 홉을 지칭하며, 홉을 지날 때 마다 
   <p>가상화 서버는 내부에 가상 스위치가 존재하므로 스위치 간 연결로 볼 수 있다.</p>
 
   <p><img src="https://heon-kim.github.io/assets/images/posts_img/network/2024-01-16-network-switch.jpeg" alt="가상화 서버 연결 구성" /></p>
-</blockquote>]]></content><author><name>heon</name></author><category term="network" /><category term="network" /><summary type="html"><![CDATA[VLAN]]></summary></entry><entry><title type="html">스위치의 기본 동작</title><link href="http://localhost:4000/network/2024-01-15-network-switch/" rel="alternate" type="text/html" title="스위치의 기본 동작" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/network/network-switch</id><content type="html" xml:base="http://localhost:4000/network/2024-01-15-network-switch/"><![CDATA[<blockquote>
-  <p>🌷 <strong>개요</strong></p>
-
-  <p><strong>스위치</strong></p>
-
-  <ul>
-    <li>2계층 장비</li>
-    <li>네트워크의 가장 핵심적인 장비</li>
-    <li>MAC 주소를 기반으로 동작</li>
-  </ul>
-
-  <p><strong>스위치의 기본 동작</strong></p>
-
-  <ul>
-    <li>네트워크 중간에서 패킷을 받아, 필요한 곳에만 보내준다. (네트워크의 통신을 중재)</li>
-    <li>아무 설정을 하지 않고 연결만 해도 MAC 주소를 기반으로 패킷을 전달한다.</li>
-  </ul>
-
-  <p><strong>추가 기능</strong></p>
-
-  <ul>
-    <li>VLAN 기능 : 논리적으로 네트워크를 분리</li>
-    <li>STP 기능 (스패닝 트리 프로토콜) : 네트워크의 루프 방지</li>
-  </ul>
-</blockquote>
-
-<h2 id="스위치의-기본-동작">스위치의 기본 동작</h2>
-
-<ul>
-  <li>스위치의 필요성
-    <ul>
-      <li>스위치가 없다면
-        <ul>
-          <li>패킷을 전송할 때 서로 경합해 그로 인한 네트워크 성능 저하</li>
-        </ul>
-      </li>
-      <li>스위치를 통해
-        <ul>
-          <li>패킷을 동시에 여러 장비가 서로 간섭없이 통신</li>
-          <li>통신 효율성이 향상</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>스위치의 역할</p>
-
-    <ul>
-      <li>장비의 위치를 파악하고 <code class="language-plaintext highlighter-rouge">정확한 위치</code>로 패킷을 전송
-        <ul>
-          <li>정확한 위치는 <code class="language-plaintext highlighter-rouge">MAC 주소 테이블</code>을 통해 알 수 있다.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>MAC 주소 테이블</p>
-
-    <ul>
-      <li>
-        <p>MAC 주소와 포트 정보가 매핑되어 있다.</p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>MAC 주소</th>
-              <th>포트</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1111:2222:3333</td>
-              <td>Eth1</td>
-            </tr>
-            <tr>
-              <td>4444:5555:6666</td>
-              <td>Eth2</td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
-    </ul>
-  </li>
-  <li>스위치의 동작
-    <ul>
-      <li>테이블에 없는 주소를 가진 패킷은 전체 포트로 전송된다. (플러딩)</li>
-      <li>테이블에 있는 주소를 가진 패킷은 해당 포트로만 전송된다. (포워딩 또는 필터링)</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="1-플러딩-flooding">1. 플러딩 (Flooding)</h3>
-
-<ul>
-  <li>동작 방식 : 전체 포트로 패킷을 전달한다.</li>
-  <li>동작 조건 :
-    <ul>
-      <li>MAC 주소 테이블에 일치하는 도착지 MAC 주소 정보가 없는 경우</li>
-      <li>브로드캐스트, 멀티캐스트, 언노운 유니캐스트인 경우</li>
-    </ul>
-  </li>
-  <li>플러딩 공격 기법
-    <ul>
-      <li>스위치에 잘못된 MAC 주소를 학습시킴</li>
-      <li>MAC 테이블을 꽉 차게해 플러딩을 유도</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="2-어드레스-러닝">2. 어드레스 러닝</h3>
-
-<ul>
-  <li>동작 방식 : MAC 주소 테이블을 만들고 유지한다.</li>
-  <li>동작 조건 : 특정 포트에 들어온 패킷의 출발지 MAC 주소와 포트번호를 MAC 주소 테이블에 기록</li>
-  <li>브로드캐스트나 멀티캐스트에 대한 MAC 주소를 학습할 수 없다!
-    <ul>
-      <li>출발지가 사용되지 않기 때문</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="3-포워딩필터링">3. 포워딩/필터링</h3>
-
-<ul>
-  <li>동작 방식 : 특정 포트로 패킷을 전달</li>
-  <li>동작 조건 :
-    <ul>
-      <li>MAC 주소 테이블에 일치하는 도착지 MAC 주소 정보가 있는 경우</li>
-      <li>유니캐스트인 경우</li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>heon</name></author><category term="network" /><category term="network" /><summary type="html"><![CDATA[플러딩, 어드레스 러닝, 포워딩/필터링]]></summary></entry></feed>
+</blockquote>]]></content><author><name>heon</name></author><category term="network" /><category term="network" /><summary type="html"><![CDATA[VLAN]]></summary></entry></feed>

@@ -58,4 +58,10 @@ var store = [{
         "tags": ["db"],
         "url": "/project/2024-03-30-db-neo4j/",
         "teaser": null
+      },{
+        "title": "(Neo4j) 1. Neo4j의 구성요소",
+        "excerpt":"Neo4j 속성 그래프 데이터베이스 모델은 다음과 같이 구성되어 있습니다 Nodes: 엔티티 labels: 어떤 종류의 노드인지 정의(분류)하기 위해 가지는 속성 properties: 노드와 관계를 설명하는 속성(키-값 쌍) Relationships: source node와 target node 사이의 연결 direction: 방향(한 방향) type: 어떤 관계인지 정의(분류)하기 위해 가지는 속성 (한개의 타입) properties: 노드와 관계를 설명하는 속성(키-값 쌍)...","categories": ["db"],
+        "tags": ["db"],
+        "url": "/project/2024-04-03-db-neo4j/",
+        "teaser": null
       }]
